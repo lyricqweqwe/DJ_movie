@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_main %}
+    {% for film in films %}
+        <div class="col-sm-8" style="margin-top: 25px;margin-left: 25px">
+            <div class="row">
+                <div class="col-sm-4" style="margin-top: 10px;margin-bottom: 10px;">
+                    <div class="pic">
+                        <img style="width: 250px;height: 350px" src="http://127.0.0.1:8000/static/ 在{{ film.image }}" alt="{{ film.name }}">
+                        <span class="label label-success" style="height: 50px;width: 150px"><button href="#" style="height: 50px;width: 150px;background-color: #00AFE4;margin-top: 10px">立即播放</button></span>
+                    </div>
+                </div>
+                <div class="col-sm-8" style="margin-top: 10px;margin-bottom: 10px;">
+                    <div class="info" style="background: #fff;padding: 10px;">
+                        <h1>{{ film.name }}</h1>
+                        <ul>
+                            <li>
+                                <span>上映年代：</span>{{ film.on_decade }}&nbsp;&nbsp;
+                                <span>状态：</span>{{ film.status }}7
+                            </li>
+                            <li>
+                                <span>类型：</span>
+                                <a href="xl/1.html?type=f39c979857a4c8c50157a8fe5ad8001b"
+                                   target="_blank">{{ film.sub_class_name }}</a>
+                            </li>
+                            <li>
+                                <span>主演：</span>
+                                <a href="javascript:"> {{ film.actor }} </a>
+                            </li>
+                            <li>
+                                <span>地区：</span>{{ film.loc_name }}
+                            </li>
+                            <li>
+                                <span>更新日期：</span>{{ film.update_time }}&nbsp;&nbsp;
+                            </li>
+                            <li>
+                                <span>剧情：</span>
+                                {#                                    <p><span#}
+                                {#                                            style="color: rgb(74, 74, 74); font-family: 微软雅黑; font-size: 12px; text-align: center; back[<a href="#}
+                                {#                                            xl/detail.html?film_id=f39c979857a4c8c50157a9020fb8001d#desc">详细</a>]#}
+                            </li>
+                            <div class="pfen">
+                                <p>影片评价</p>
+                                <div id="star" data-score="8" data-number="10"></div>
+                                <div class="fen" id="filmStarScoreTip">
+                                <span class="no c1" id="filmStarScore">
+                                    {{ film.evaluation }}
+
+                                    <i>.0</i>
+
+                                </span>
+                                    <div class="bdsharebuttonbox" style="float: right;">
+                                        <a href="#" class="bds_more" data-cmd="more"></a>
+                                        <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+                                        <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+                                        <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+                                        <a href="#" class="bds_renren" data-cmd="renren"></a>
+                                        <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+                                    </div>
+                                    <script>window._bd_share_config = {
+                                        "common": {
+                                            "bdSnsKey": {},
+                                            "bdText": "",
+                                            "bdMini": "2",
+                                            "bdPic": "",
+                                            "bdStyle": "0",
+                                            "bdSize": "16"
+                                        },
+                                        "share": {},
+                                        "image": {
+                                            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+                                            "viewText": "分享到：",
+                                            "viewSize": "16"
+                                        },
+                                        "selectShare": {
+                                            "bdContainerClass": null,
+                                            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+                                        }
+                                    };
+                                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+{% endblock %}

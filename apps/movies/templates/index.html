@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_titile %}
+    更多精彩电影,尽在澳门赌场
+{% endblock %}
+{% block page_head %}
+    <div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="mox">
+                <h5>最新电影推荐<span style="margin-right:10px;cursor:pointer;float: right;"
+                                onclick="location.href='xl/1.html?cataLog_id=f39c979857a4874a0157a4a6a4fe0000'">更多</span>
+                </h5>
+
+                <ul>
+                    {% for film in films %}
+
+                        {% if  film.cata_log_name == "电影" %}
+                            <li class="float-left">
+                                <a href="http://127.0.0.1:8000/movies/detail/{{ film.id }}">
+                                    <div class="t_img" title="{{ film.name }}"><img class="lazy rounded img-fluids"
+                                                                                    src="http://127.0.0.1:8000/static/{{ film.image }}"/>
+                                    </div>
+                                </a>
+                                <div class="t_info">
+                                    <p style="color:#00AFE4;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                                        {{ film.name }}</p>
+                                    <p>{{ film.type_name }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+
+
+                    {% empty %}
+                        <p>没有数据展示</p>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="mox">
+                <h5>最新电视剧推荐<span style="margin-right:10px;cursor:pointer;float: right;"
+                                onclick="location.href='xl/1.html?cataLog_id=f39c979857a4874a0157a4a6a4fe0000'">更多</span>
+                </h5>
+
+                <ul>
+                    {% for film in films %}
+
+                        {% if  film.cata_log_name == "电视剧" %}
+                            <li class="float-left">
+                                <a href="{% url 'detail' film.id %}">
+                                    <div class="t_img" title="{{ film.name }}"><img class="lazy rounded img-fluids"
+                                                                                    src="http://127.0.0.1:8000/static/{{ film.image }}"/>
+                                    </div>
+                                </a>
+                                <div class="t_info">
+                                    <p style="color:#00AFE4;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                                        {{ film.name }}</p>
+                                    <p>{{ film.type_name }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+
+
+                    {% empty %}
+                        <p>没有数据展示</p>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="mox">
+                <h5>最新动漫推荐<span style="margin-right:10px;cursor:pointer;float: right;"
+                                onclick="location.href='xl/1.html?cataLog_id=f39c979857a4874a0157a4a6a4fe0000'">更多</span>
+                </h5>
+
+                <ul>
+                    {% for film in films %}
+
+                        {% if  film.cata_log_name == "动漫" %}
+                            <li class="float-left">
+                                <a href="{% url 'detail' film.id %}">
+                                    <div class="t_img" title="{{ film.name }}"><img class="lazy rounded img-fluids"
+                                                                                    src="http://127.0.0.1:8000/static/{{ film.image }}"/>
+                                    </div>
+                                </a>
+                                <div class="t_info">
+                                    <p style="color:#00AFE4;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                                        {{ film.name }}</p>
+                                    <p>{{ film.type_name }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+
+
+                    {% empty %}
+                        <p>没有数据展示</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
